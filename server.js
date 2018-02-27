@@ -13,6 +13,6 @@ client.connect();
 
 app.use(cors());
 
-app.get('/', (reg, res) => res.send('Testing: 1, 2, 3. A, B, C. Doh, Rai, Me.'));
+app.get('/', (req, res) => res.send('Testing: 1, 2, 3. A, B, C. Doh, Rai, Me.'));
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
