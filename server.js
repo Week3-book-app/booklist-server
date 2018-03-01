@@ -12,9 +12,12 @@ const CLIENT_URL = process.env.CLIENT_URL;
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 
-app.use(cors());
+client.on('error', err => console.error(err));
 
-// app.get('/', (req, res) => res.send('Testing: 1, 2, 3. A, B, C. Doh, Rai, Me.'));
+
+app.use(cors({
+  origin: true,
+}));
 
 
 app.get('/api/v1/books', (req, res) => {
@@ -32,6 +35,7 @@ app.get('/api/v1/book/:id', (req, res) => {
 
 app.post('/book/add', bodyParser, (req, res) =>{
   let {title, author, isbn, image_url, description} = req.body;
+
   //destructuring ^
 
   client.query(`
