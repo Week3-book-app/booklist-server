@@ -16,7 +16,10 @@ app.use(cors({
   origin: true,
 }));
 
-// app.get('/', (req, res) => res.send('Testing: 1, 2, 3. A, B, C. Doh, Rai, Me.'));
+
+app.use(cors({
+  origin: true,
+}));
 
 
 app.get('/api/v1/books', (req, res) => {
@@ -34,6 +37,7 @@ app.get('/api/v1/books/:id', (req, res) => {
 
 app.post('/books/add', bodyParser, (req, res) =>{
   let {title, author, isbn, image_url, description} = req.body;
+
   //destructuring ^
 
   client.query(`
