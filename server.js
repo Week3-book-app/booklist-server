@@ -29,7 +29,7 @@ app.get('/api/v1/books/:id', (req, res) => {
 });
 
 
-app.post('/books/add', bodyParser, (req, res) =>{
+app.post('/api/v1/books/add', bodyParser, (req, res) =>{
   let {title, author, isbn, image_url, description} = req.body;
 
   //destructuring ^
